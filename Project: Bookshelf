@@ -1,0 +1,99 @@
+//declaring variables
+var j = 0;
+var k = 4;
+//object array that holds book info
+var book = [
+    {
+        title: "Johnny Johnny",
+        stars: 4,
+        author: "Papa"
+    },
+    {
+        title: "Yes Papa?",
+        stars: 5,
+        author: "Johnny"
+    },
+    {
+        title: "Eating Sugar?",
+        stars: 3,
+        author: "Papa"
+    },
+    {
+        title: "No Papa",
+        stars: 1,
+        author: "Johnny"
+    },
+    {
+        title: "Telling Lies?",
+        stars: 3,
+        author: "Papa"
+    },
+    {
+        title: "No Papa",
+        stars: 4,
+        author: "Johnny"
+    },
+    {
+        title: "Open Your Mouth",
+        stars: 1,
+        author: "Papa"
+    },
+    {
+        title: "Ha, Ha, Ha!",
+        stars: 5,
+        author: "Johnny"
+    }
+];
+
+//brown shelves
+fill(173, 117, 33);
+rect(0, 145, width, 10);
+rect(0, 275, width, 10);
+
+//draws top shelf of books
+while (j < 4)
+{
+    //generating random colour for books
+    fill(random(100,255), random(100,255), random(100,255));
+    //drawing books
+    rect(100 * j + 5, 45, 90, 100);
+    
+    //Writing book title & author
+    fill(0, 0, 0);
+    textSize(13);
+    text(book[j].title, 100 * j + 10, 55, 70, 100);
+    textSize(10);
+    text("by: " + book[j].author, 100 * j + 10, 113, 70, 100);
+    
+    //draws stars for each book
+    for (var i = 0; i < book[j].stars; i++)
+    {
+        image(getImage("cute/Star"), 8 + i * 16 + j * 100, 115, 20, 30);
+    }
+    
+    j++;
+}
+
+//draws bottom shelf of books
+while (k < book.length)
+{
+    //generating random colour for books
+    fill(random(100,255), random(100,255), random(100,255));
+    //drawing books
+    rect(100 * (k - 4) + 5, 175, 90, 100);
+    
+    //Writing book title & author
+    fill(0, 0, 0);
+    textSize(13);
+    text(book[k].title, 100 * (k - 4) + 10, 185, 70, 100);
+    textSize(10);
+    text("by: " + book[k].author, 100 * (k - 4) + 10, 245, 70, 100);
+    
+    //draws stars for each book
+    for (var i = 0; i < book[k].stars; i++)
+    {
+        image(getImage("cute/Star"), 8 + i * 16 + (k - 4) * 100, 245, 20, 30);
+    }
+    
+    k++;
+}
